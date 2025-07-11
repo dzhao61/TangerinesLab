@@ -126,10 +126,8 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333;
-  text-decoration: none;
+  max-height: 40px;
+  overflow: hidden;
 }
 
 .nav-logo .logo-img {
@@ -319,6 +317,9 @@ body {
   justify-content: center;
   align-items: center;
   animation: slideInRight 1s ease-out;
+  max-width: 400px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .tech-circle {
@@ -729,43 +730,110 @@ section {
 .footer-logo {
   display: flex;
   align-items: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+  max-height: 32px;
+  overflow: hidden;
 }
 
 .footer-logo .logo-img {
   height: 24px !important;
   width: auto !important;
+}
+
+/* Defensive CSS to prevent layout issues */
+.hero-visual {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.hero-logo {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 /* Logo styling */
 .logo-img {
   height: 32px;
-  width: auto;
+  width: 32px;
   margin-right: 8px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
   /* Performance optimizations */
   will-change: transform;
   transform: translateZ(0);
-  max-width: none;
+  max-width: 32px;
+  max-height: 32px;
   flex-shrink: 0;
+  display: block;
+  overflow: hidden;
+}
+
+/* Alternative background image approach for better cross-browser support */
+.logo-bg {
+  background-image: url('../SmallLogo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.logo-bg:hover {
+  transform: scale(1.1);
+}
+
+.nav-logo .logo-bg {
+  height: 28px;
+  width: 28px;
+  margin-right: 8px;
+}
+
+.footer-logo .logo-bg {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+
+/* Ensure object-fit fallback for older browsers */
+.logo-img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
 }
 
 /* Specific logo sizing for navigation */
 .nav-logo .logo-img {
   height: 28px !important;
-  width: auto !important;
+  width: 28px !important;
   max-height: 28px !important;
+  max-width: 28px !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
 }
 
 /* Specific logo sizing for footer */
 .footer-logo .logo-img {
   height: 24px !important;
-  width: auto !important;
+  width: 24px !important;
   max-height: 24px !important;
+  max-width: 24px !important;
+  min-height: 24px !important;
+  min-width: 24px !important;
 }
 
 .logo-img:hover {
@@ -785,8 +853,12 @@ section {
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   box-shadow: 0 20px 60px rgba(255, 122, 71, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  max-height: 300px;
+  flex-shrink: 0;
 }
 
 .hero-logo-img:hover {
