@@ -285,6 +285,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Removed color animation - tech circle now stays one color
 
+    // Fix Safari iOS viewport height issue
+    const setVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set initial value
+    setVH();
+    
+    // Update on resize (handles orientation change)
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(setVH, 100); // Delay to allow orientation change to complete
+    });
+
+    // Additional Safari fixes
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        // Disable zoom on input focus for Safari
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Fix Safari's 100vh issue
+        document.body.style.setProperty('height', '100vh');
+        document.body.style.setProperty('height', '-webkit-fill-available');
+    }
+
+    // iOS Safari specific fixes
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, {passive: false});
+        
+        // Fix iOS Safari address bar behavior
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 0) {
+                document.body.style.paddingTop = '0px';
+            }
+        }, {passive: true});
+        
+        // Fix iOS Safari touch scrolling
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.nav-menu.active')) {
+                // Allow scrolling in mobile menu
+                return;
+            }
+            // Prevent body scroll when menu is open
+            if (document.querySelector('.nav-menu.active')) {
+                e.preventDefault();
+            }
+        }, {passive: false});
+    }
+
     console.log('🍊 Tangerines Lab website loaded with enhanced interactivity!');
 });
 

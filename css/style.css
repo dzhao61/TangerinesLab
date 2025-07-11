@@ -736,18 +736,22 @@ section {
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 0;
     left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
     transition: left 0.3s ease;
-    z-index: 999;
+    z-index: 9999;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   .nav-menu.active {
@@ -1194,5 +1198,268 @@ section.animate {
   
   .shape {
     animation-duration: 20s;
+  }
+}
+
+/* Safari iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Safari on iOS detection */
+  
+  /* Fix viewport height issues on iOS Safari */
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Fix Safari's bouncy scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  /* Fix Safari's zoom on input focus */
+  input, textarea, select, button {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+  
+  /* Fix Safari's backdrop-filter support */
+  .nav-menu {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+  
+  /* Fix Safari's transform performance */
+  .tech-circle,
+  .orbit,
+  .planet,
+  .innovation-cube {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Fix Safari's animation performance */
+  .floating-shapes .shape {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Fix Safari's gradient rendering */
+  .gradient-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Fix Safari's button styling */
+  .btn {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix Safari's link tap highlight */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix Safari's safe area for iPhone X and newer */
+  @media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .hero {
+      padding-top: env(safe-area-inset-top, 80px);
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    
+    .navbar {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+  }
+  
+  /* Fix Safari's safe area for iPhone 12/13/14 */
+  @media screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+    .hero {
+      padding-top: env(safe-area-inset-top, 80px);
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    
+    .navbar {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+  }
+}
+
+/* Additional iOS Safari fixes */
+@media (max-width: 768px) {
+  /* Fix Safari's 100vh issue */
+  .hero {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Better font rendering on iOS */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Fix Safari's touch scrolling */
+  .nav-menu {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix Safari's button focus outline */
+  button:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix Safari's select dropdown */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Fix Safari's animation flickering */
+  .tech-circle,
+  .orbit,
+  .planet {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
+  
+  /* Fix Safari's transform origin */
+  .innovation-cube {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  /* Fix Safari's text rendering */
+  .hero-title,
+  .section-title {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Fix Safari's sticky positioning */
+  .navbar {
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* iOS Safari performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for better performance */
+  .floating-shapes .shape {
+    animation-duration: 25s;
+    will-change: transform;
+  }
+  
+  /* Optimize transforms for better performance */
+  .tech-circle,
+  .orbit,
+  .planet,
+  .innovation-cube,
+  .nav-menu {
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Fix iOS Safari rubber band effect */
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Fix iOS Safari address bar hide/show */
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    position: relative;
+  }
+  
+  /* Better touch scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix iOS Safari font size adjustment */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Fix iOS Safari button active state */
+  .btn:active {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+  }
+  
+  /* Fix iOS Safari navigation menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: left 0.3s ease;
+    z-index: 9999;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  /* Fix iOS Safari navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  
+  /* Fix hero section padding for iOS safe area */
+  .hero {
+    padding-top: calc(70px + env(safe-area-inset-top, 0px));
+    padding-left: env(safe-area-inset-left, 20px);
+    padding-right: env(safe-area-inset-right, 20px);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  
+  /* Fix section padding for iOS safe area */
+  .section {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  
+  /* Fix footer padding for iOS safe area */
+  .footer {
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 }
