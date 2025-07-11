@@ -133,7 +133,8 @@ body {
 }
 
 .nav-logo .logo-img {
-  height: 28px;
+  height: 28px !important;
+  width: auto !important;
 }
 
 .nav-logo i {
@@ -734,7 +735,8 @@ section {
 }
 
 .footer-logo .logo-img {
-  height: 24px;
+  height: 24px !important;
+  width: auto !important;
 }
 
 /* Logo styling */
@@ -748,6 +750,22 @@ section {
   /* Performance optimizations */
   will-change: transform;
   transform: translateZ(0);
+  max-width: none;
+  flex-shrink: 0;
+}
+
+/* Specific logo sizing for navigation */
+.nav-logo .logo-img {
+  height: 28px !important;
+  width: auto !important;
+  max-height: 28px !important;
+}
+
+/* Specific logo sizing for footer */
+.footer-logo .logo-img {
+  height: 24px !important;
+  width: auto !important;
+  max-height: 24px !important;
 }
 
 .logo-img:hover {
