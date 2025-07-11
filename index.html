@@ -3,86 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tangerines Lab</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fdf6f0;
-      color: #333;
-    }
-    header {
-      background-color: #ffa726;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-    nav {
-      background-color: #ffcc80;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
-    }
-    footer {
-      background-color: #ffa726;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-    .highlight {
-      color: #e65100;
-      font-weight: bold;
-    }
-  </style>
+  <title>Tangerines Lab - Innovation Unleashed</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Tangerines Lab</h1>
-    <p>Innovation. Creativity. Technology.</p>
-  </header>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+  </div>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-atom"></i>
+        <span>Tangerines Lab</span>
+      </div>
+      <div class="nav-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </nav>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Tangerines Lab is a cutting-edge technology company focused on delivering innovative software solutions and research-driven development. Our mission is to harness creativity to solve real-world problems.</p>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="gradient-text">Tangerines Lab</span>
+        </h1>
+        <p class="hero-subtitle">Innovation. Creativity. Technology.</p>
+        <p class="hero-description">A passionate startup of three founders creating mobile applications that bring people together</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary pulse">
+            <i class="fas fa-rocket"></i>
+            Get Started
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="tech-circle">
+          <div class="orbit orbit-1">
+            <div class="planet"><i class="fas fa-code"></i></div>
+          </div>
+          <div class="orbit orbit-2">
+            <div class="planet"><i class="fas fa-brain"></i></div>
+          </div>
+          <div class="orbit orbit-3">
+            <div class="planet"><i class="fas fa-lightbulb"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li><span class="highlight">Custom Software Development</span> – tailored web and mobile applications</li>
-      <li><span class="highlight">AI & Data Science</span> – predictive modeling, analytics, and automation</li>
-      <li><span class="highlight">Tech Consulting</span> – expert advice and strategy for startups and enterprises</li>
-    </ul>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Us</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-description">
+            Tangerines Lab is a dynamic startup founded by three passionate entrepreneurs dedicated to creating mobile applications that bring people together. We believe technology should foster human connections, not isolate us. Our mission is to develop innovative mobile solutions that strengthen communities and build meaningful relationships.
+          </p>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number" data-count="3">0</div>
+              <div class="stat-label">Founders</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="2">0</div>
+              <div class="stat-label">Apps in Development</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="2024">0</div>
+              <div class="stat-label">Year Founded</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="innovation-cube">
+            <div class="cube-face front">Innovation</div>
+            <div class="cube-face back">Creativity</div>
+            <div class="cube-face right">Technology</div>
+            <div class="cube-face left">Innovation</div>
+            <div class="cube-face top">Creativity</div>
+            <div class="cube-face bottom">Technology</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@tangerineslab.com">info@tangerineslab.com</a></p>
-    <p>Follow us on social media: <a href="#">LinkedIn</a> | <a href="#">Twitter</a></p>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Let's create something amazing together</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@tangerineslab.com">info@tangerineslab.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Tangerines Lab. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-atom"></i>
+          <span>Tangerines Lab</span>
+        </div>
+        <p>&copy; 2025 Tangerines Lab. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
