@@ -133,7 +133,7 @@ body {
 }
 
 .nav-logo .logo-img {
-  height: 35px;
+  height: 28px;
 }
 
 .nav-logo i {
@@ -734,17 +734,20 @@ section {
 }
 
 .footer-logo .logo-img {
-  height: 30px;
+  height: 24px;
 }
 
 /* Logo styling */
 .logo-img {
-  height: 40px;
+  height: 32px;
   width: auto;
-  margin-right: 10px;
+  margin-right: 8px;
   border-radius: 50%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .logo-img:hover {
