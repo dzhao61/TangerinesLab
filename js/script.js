@@ -36,6 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('active');
     });
 
+    // Close mobile menu when clicking a navigation link
+    const mobileNavLinks = document.querySelectorAll('.nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
     // Animated counters
     const counters = document.querySelectorAll('.stat-number');
     let countersAnimated = false; // Prevent multiple animations

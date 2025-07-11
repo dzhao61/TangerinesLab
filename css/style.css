@@ -800,6 +800,256 @@ section {
   }
 }
 
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+    padding: 80px 20px 20px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .tech-circle {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .orbit-1 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .orbit-2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .orbit-3 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* About Section */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .stats {
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .innovation-cube {
+    width: 120px;
+    height: 120px;
+  }
+  
+  /* Navigation */
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  /* Section padding */
+  .section {
+    padding: 80px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero {
+    padding: 80px 15px 20px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .tech-circle {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orbit-1 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .orbit-2 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .orbit-3 {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .planet {
+    width: 25px;
+    height: 25px;
+    top: -12px;
+    font-size: 10px;
+  }
+  
+  /* Navigation */
+  .nav-logo span {
+    font-size: 1.3rem;
+  }
+  
+  .navbar {
+    padding: 0 15px;
+  }
+  
+  /* About Section */
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .innovation-cube {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .cube-face {
+    font-size: 0.8rem;
+  }
+  
+  /* Section spacing */
+  .section {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 0;
+  }
+  
+  .footer-logo span {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .tech-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .orbit-1 {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .orbit-2 {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .orbit-3 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .planet {
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    font-size: 8px;
+  }
+  
+  .innovation-cube {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cube-face {
+    font-size: 0.7rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 60px 20px 20px;
+  }
+  
+  .hero-content {
+    gap: 30px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .tech-circle {
+    width: 180px;
+    height: 180px;
+  }
+}
+
 /* Additional Animations */
 .service-card.animate {
   animation: fadeInUp 0.6s ease forwards;
@@ -879,5 +1129,70 @@ section.animate {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/* Touch and interaction improvements for mobile */
+@media (max-width: 768px) {
+  /* Better touch targets */
+  .nav-link {
+    padding: 15px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn {
+    min-height: 44px;
+    padding: 12px 24px;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Fix for mobile Safari */
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Better spacing for mobile */
+  .hero-buttons {
+    margin-top: 30px;
+  }
+  
+  /* Close mobile menu when clicking a link */
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Improve mobile menu appearance */
+  .nav-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  /* Better mobile animations */
+  .floating-shapes {
+    opacity: 0.3;
+  }
+  
+  .shape {
+    animation-duration: 20s;
   }
 }
